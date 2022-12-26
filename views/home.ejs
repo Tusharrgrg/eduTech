@@ -1,3 +1,64 @@
-<%- include("partials/header")  %> 
-<%- include("partials/nav")  %> 
+<%- include("partials/header") %>
+  <%- include("partials/nav") %>
 
+    <body>
+      <%- include("partials/carousel") %>
+
+        <!-- service section -->
+        <section id="services" class="py-3">
+          <div class="container">
+            <h1 class="text-center text-secondary">Our Courses</h1>
+            <div class="row">
+              <% services.forEach(service=>{%>
+                <div class="col-md-4">
+                  <div class="card mt-4">
+                    <div class="card-body">
+                      <div class="container text-center py-3">
+                        <i class="<%=service.icon%>  service-icon"></i>
+                      </div>
+                      <h5 class="card-title text-center">
+                        <%= service.title %>
+                      </h5>
+                      <p class="text-center">
+                        <%= service.description %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+            </div>
+          </div>
+        </section>
+
+        <!--  contact section -->
+        <section id="contact-us" class="py-5 background1">
+          <div class="container">
+            <h3 class="text-center text-secondary">Contact Us</h3>
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <form action="/process-contact-form" method="post" >
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" name="email" id="emailField" placeholder="name@example.com">
+                    <label for="emailField">Email address</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" name="phone" id="contactNumberField" placeholder="Contact Number">
+                    <label for="contactNumberField">Contact number</label>
+                  </div>
+
+                  <div class="form-floating mt-3">
+                    <textarea style="height: 250px;" name="query" class="form-control" placeholder="Enter your query here" id="queryField"></textarea>
+                    <label for="queryField">Your Query</label>
+                  </div>
+                  <div class="container text-center mt-3">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+    </body>
+
+
+    <%- include("partials/footer") %>

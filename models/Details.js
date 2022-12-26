@@ -1,3 +1,5 @@
+// details schema of header of website
+
 const mongoose = require("mongoose");
 const Detail = mongoose.Schema({
     name:String,
